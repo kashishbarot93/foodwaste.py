@@ -1,0 +1,31 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Sample data for food waste (in kg)
+data = {
+    "Food_Item": ["Rice", "Bread", "Vegetables", "Fruits", "Dairy"],
+    "Waste_kg": [15, 10, 20, 12, 8]
+}
+
+# Create DataFrame
+df = pd.DataFrame(data)
+
+# Display dataset
+print("Food Waste Data:")
+print(df)
+
+# Total food waste
+total_waste = df["Waste_kg"].sum()
+print("\nTotal Food Waste:", total_waste, "kg")
+
+# Find the item with maximum waste
+max_waste = df.loc[df["Waste_kg"].idxmax()]
+print("\nFood item with highest waste:")
+print(max_waste)
+
+# Plot graph
+plt.bar(df["Food_Item"], df["Waste_kg"])
+plt.title("Food Waste Management Analysis")
+plt.xlabel("Food Item")
+plt.ylabel("Waste (kg)")
+plt.show()
